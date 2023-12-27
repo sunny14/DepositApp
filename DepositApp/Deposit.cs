@@ -43,11 +43,17 @@ namespace DepositApp
         public int getDepositAfter(int years)
         {
             int total = initialAmount;
-            do
+
+            for(int i=0; i<years; i++)
+            {
+                //calculate deposit value
+                total = total + total * annualRevenue / 100;
+            }
+/*            do
             {
                 total = total + total * annualRevenue / 100;
                 years--;
-            } while (years > 0);
+            } while (years > 0)*/;
 
             return total;
         }
@@ -61,12 +67,18 @@ namespace DepositApp
             int total = initialAmount;
             Console.Write(total);
 
-            do
+            for(int i=0; i<years; i++)
+            {
+                total = total + total * annualRevenue / 100;
+                Console.Write("," + total);
+            }
+
+  /*          do
             {
                 total = total + total * annualRevenue / 100;
                 years--;
-                Console.Write(","+total);
-            } while (years > 0);
+                Console.Write("," + total);
+            } while (years > 0);*/
 
             Console.WriteLine("\n");
         }  
